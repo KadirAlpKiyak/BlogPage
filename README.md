@@ -15,3 +15,7 @@ Bu projenin özgünlüğünü sağlaması için ayrıca her localhostun kendi g�
 
 
 Projenin amacı tamamı ile kişisel bilgilerin bulunduğu ve insanlara kolayca gösterilebileceği şekilde tasarlanmıştır
+
+
+
+https://github.com/KadirAlpKiyak/BlogPage/blob/main/README.md
