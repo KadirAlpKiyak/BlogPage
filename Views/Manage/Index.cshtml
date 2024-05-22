@@ -1,0 +1,89 @@
+﻿@model FİNALPROJE.Models.IndexViewModel
+@{
+    ViewBag.Title = "Yönet";
+}
+
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <div>
+        <h4>Hesap ayarlarınızı değiştirin</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Parola:</dt>
+            <dd>
+                [
+                @if (Model.HasPassword)
+                {
+                    @Html.ActionLink("Parolanızı değiştirin", "ChangePassword")
+                }
+                else
+                {
+                    @Html.ActionLink("Oluştur", "SetPassword")
+                }
+                ]
+            </dd>
+            <dt>Dış Oturum Açmalar:</dt>
+            <dd>
+                @Model.Logins.Count [
+                @Html.ActionLink("Manage", "ManageLogins") ]
+            </dd>
+            @*
+                Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+                
+                See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                    for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+                
+                Uncomment the following block after you have set up two-factor authentication
+            *@
+            @*  
+                <dt>Telefon Numarası:</dt>
+                <dd>
+                    @(Model.PhoneNumber ?? "None")
+                    @if (Model.PhoneNumber != null)
+                    {
+                        <br />
+                        <text>[&nbsp;&nbsp;@Html.ActionLink("Değiştir", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                        using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <text>[<input type="submit" value="Kaldır" class="btn-link" />]</text>
+                        }
+                    }
+                    else
+                    {
+                        <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                    }
+                </dd>
+            *@
+            <dt>İki Öğeli Kimlik Doğrulama:</dt>
+            <dd>
+                <p>
+                    There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                    for details on setting up this ASP.NET application to support two-factor authentication.
+                </p>
+                @*@if (Model.TwoFactor)
+                    {
+                        using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <text>Etkin
+                            <input type="submit" value="Devre Dışı Bırak" class="btn btn-link" />
+                            </text>
+                        }
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <text>Devre dışı
+                            <input type="submit" value="Etkinleştir" class="btn btn-link" />
+                            </text>
+                        }
+                    }*@
+            </dd>
+        </dl>
+    </div>
+</main>

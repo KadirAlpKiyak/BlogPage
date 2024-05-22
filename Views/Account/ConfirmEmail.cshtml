@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "E-postayı Onayla";
+}
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <div>
+        <p>
+            E-postanızı onayladığınız için teşekkür ederiz. Lütfen @Html.ActionLink("Oturum açmak için buraya tıklayın", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </p>
+    </div>
+</main>
